@@ -1,26 +1,143 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-background: rgb(255 255 255);
+  --color-foreground: rgb(10 10 10);
+  --color-card: rgb(255 255 255);
+  --color-card-foreground: rgb(10 10 10);
+  --color-popover: rgb(255 255 255);
+  --color-popover-foreground: rgb(10 10 10);
+  --color-primary: rgb(10 10 10);
+  --color-primary-foreground: rgb(248 248 248);
+  --color-secondary: rgb(245 245 245);
+  --color-secondary-foreground: rgb(10 10 10);
+  --color-muted: rgb(245 245 245);
+  --color-muted-foreground: rgb(115 115 115);
+  --color-accent: rgb(245 245 245);
+  --color-accent-foreground: rgb(10 10 10);
+  --color-destructive: rgb(239 68 68);
+  --color-destructive-foreground: rgb(248 248 248);
+  --color-border: rgb(229 229 229);
+  --color-input: rgb(229 229 229);
+  --color-ring: rgb(10 10 10);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --color-background: rgb(10 10 10);
+  --color-foreground: rgb(248 248 248);
+  --color-card: rgb(10 10 10);
+  --color-card-foreground: rgb(248 248 248);
+  --color-popover: rgb(10 10 10);
+  --color-popover-foreground: rgb(248 248 248);
+  --color-primary: rgb(248 248 248);
+  --color-primary-foreground: rgb(10 10 10);
+  --color-secondary: rgb(38 38 38);
+  --color-secondary-foreground: rgb(248 248 248);
+  --color-muted: rgb(38 38 38);
+  --color-muted-foreground: rgb(163 163 163);
+  --color-accent: rgb(38 38 38);
+  --color-accent-foreground: rgb(248 248 248);
+  --color-destructive: rgb(127 29 29);
+  --color-destructive-foreground: rgb(248 248 248);
+  --color-border: rgb(38 38 38);
+  --color-input: rgb(38 38 38);
+  --color-ring: rgb(212 212 212);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Minimalist typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+/* Clean focus states */
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-ring);
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color 200ms, border-color 200ms, color 200ms;
+}
+
+/* Prose styles for blog posts */
+.prose {
+  color: var(--color-foreground);
+  max-width: 65ch;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  color: var(--color-foreground);
+  font-weight: normal;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.prose h1 { font-size: 2em; }
+.prose h2 { font-size: 1.5em; }
+.prose h3 { font-size: 1.25em; }
+
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  line-height: 1.75;
+}
+
+.prose a {
+  color: var(--color-foreground);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  opacity: 0.8;
+}
+
+.prose code {
+  background-color: var(--color-secondary);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.prose pre {
+  background-color: var(--color-secondary);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.prose ul, .prose ol {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+}
+
+.prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--color-border);
+  padding-left: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+  color: var(--color-muted-foreground);
 }
