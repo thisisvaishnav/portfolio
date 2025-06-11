@@ -1,6 +1,5 @@
 ---
-
-itle: "Every Day You Choose: Fear or Dreams"
+title: "Every Day You Choose: Fear or Dreams"
 date: "2025-06-11"
 excerpt: "Every single day, you're moving either closer to your fears or closer to your dreams. Here's a brutal truth we all need to face—and why you don’t get to sit this one out."
 
